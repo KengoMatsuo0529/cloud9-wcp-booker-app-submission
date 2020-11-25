@@ -1,5 +1,15 @@
-<h4>Title</h4>
-<h4>Body</h4>
+<p class="notice">
+<%= notice %>
+</p>
 
-<%= link_to "Edit", books_path(@book) %>
-<%= link_to "Back", books_path(@book) %>
+
+<p>Title:
+<span><%= @book.title %></span>
+</p>
+<p>Body:
+<span><%= @book.body %></span>
+</p>
+
+<p><%= link_to "Edit", "/books/#{@book.id}/edit" %>
+|
+<%= link_to "Back", "/books" %></p>

@@ -1,9 +1,51 @@
-<h1>Books</h1>
-<h4>Title</h4>
+<div class="notice">
+  <%= notice %>
+</div>
 
-<h4>Body</h4>
+<h1 class="heading">Books</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Body</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @books.each do |book| %>
+        <tr>
+            <td><%= book.title %></td>
+            <td><%= book.body %></td>
+            <td><%= link_to "Show", "/books/#{book.id}" %></td>
+            <td><%= link_to "Edit", "/books/#{book.id}/edit" %></td>
+            <td><%= link_to "Destroy", "/books/#{book.id}", method: :delete, "data-confirm" => "Are you sure?" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
 
-<%= link_to "Show", books_path(@book) %>
-<%= link_to "Edit", books_path(@book) %>
-<%= link_to "Destroy", books_path(@book) %>
+<h2>
+  <div class="new-heading"></div>New Book
+  </h2>
+<%= form_with model:@book, local:true do |f| %>
+  <% if @book.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <label for="book_title">Title</label>
+  <div class="field"><%= f.text_field :title %></div>
+
+  <label for="book_body">Body</label>
+  <div class="area"><%= f.text_area :body %></div>
+</div>
+
+<div><%= f.submit "Create Book" %></div>
+<% end %>
+
 
