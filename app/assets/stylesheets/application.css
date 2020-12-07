@@ -20,6 +20,18 @@
    box-sizing: border-box;
  }
 
+.top-title {
+     margin-left: 0px;
+ }
+
+.link-start {
+    margin-left: 35px;
+}
+
+.bookers-title {
+    font-weight: bold;
+}
+
  .notice {
    color: green;
  }
@@ -27,6 +39,14 @@
 .heading {
   margin: 33px;
   line-height: 18px;
+}
+
+.show-title {
+    font-weight: bold;
+}
+
+.error-text {
+    color: red;
 }
 
 td {
